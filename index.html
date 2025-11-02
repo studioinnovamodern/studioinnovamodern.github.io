@@ -95,7 +95,23 @@
       
     </header>
 
-  
+  <style>
+  /* Make the hero/cover section half the viewport height */
+  .site-blocks-cover {
+    height: 50vh !important;
+    min-height: 50vh;
+    display: flex;
+    align-items: center; /* vertically center content inside the hero */
+  }
+
+  /* Slightly reduce on small screens for better fit */
+  @media (max-width: 767px) {
+    .site-blocks-cover {
+      height: 40vh !important;
+      min-height: 40vh;
+    }
+  }
+  </style>
     <section class="site-blocks-cover overflow-hidden" style="background-image: url('images/hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
       <!-- optional dark overlay to keep text readable -->
       <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35);"></div>
