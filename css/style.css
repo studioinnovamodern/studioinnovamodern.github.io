@@ -808,7 +808,14 @@ body:after {
 .owl-style.home-slider:hover .owl-nav, .owl-style.home-slider:focus .owl-nav, .owl-style.home-slider:active .owl-nav, .slide-one-item.home-slider:hover .owl-nav, .slide-one-item.home-slider:focus .owl-nav, .slide-one-item.home-slider:active .owl-nav {
   opacity: 10;
   visibility: visible; }
-
+  .owl-style .owl-dots {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+  }
 .owl-style .owl-dots, .slide-one-item .owl-dots {
   text-align: center; }
   .owl-style .owl-dots .owl-dot, .slide-one-item .owl-dots .owl-dot {
