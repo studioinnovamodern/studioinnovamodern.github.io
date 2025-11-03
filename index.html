@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Coach &mdash; Website Template by Colorlib</title>
+    <title>Coach — Website Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900|Playfair+Display:400,700,900" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900|Playfair+Display:400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -15,18 +15,63 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
-    
+
+    <!-- === Custom hero text responsiveness & behavior === -->
+    <style>
+      /* Keep hero buttons/link text white */
+      .site-blocks-cover p a.btn { color:#fff; }
+
+      /* Wrap container for the headline (right-aligned per your layout) */
+      .hero-headline-wrap{
+        max-width: min(1100px, 92vw);
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      /* Headline base styles + fluid sizing */
+      .site-blocks-cover .hero-headline{
+        margin: 0;
+        color: #fff !important;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        line-height: 1.35;
+        letter-spacing: 0.1rem;
+        text-shadow: 0 1px 2px rgba(0,0,0,.35);
+        font-size: clamp(1.02rem, 1.2vw + 0.7rem, 1.55rem);
+        text-wrap: balance; /* nicer small-screen breaks */
+      }
+
+      /* Default (mobile): allow wrapping on second line */
+      .hero-line-2 { white-space: normal; }
+
+      /* Tablet and up: keep second line on one line */
+      @media (min-width: 768px){
+        .hero-headline-wrap { max-width: min(1100px, 88vw); }
+        .hero-line-2 { white-space: nowrap; }
+      }
+
+      /* Larger tablets/desktops: a touch more room */
+      @media (min-width: 992px){
+        .hero-headline-wrap { max-width: min(1180px, 86vw); }
+        .site-blocks-cover .hero-headline{ letter-spacing: 0.08rem; }
+      }
+
+      /* Phones: use most of the width and slightly smaller type */
+      @media (max-width: 576px){
+        .hero-headline-wrap{ max-width: 92vw; }
+        .site-blocks-cover .hero-headline{
+          font-size: clamp(0.95rem, 1.1vw + 0.7rem, 1.15rem);
+          letter-spacing: 0.09rem;
+          line-height: 1.3;
+        }
+      }
+    </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
-  
 
   <div id="overlayer"></div>
   <div class="loader">
@@ -34,7 +79,6 @@
       <span class="sr-only">Loading...</span>
     </div>
   </div>
-
 
   <div class="site-wrap">
 
@@ -46,20 +90,16 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
-    
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner" >
 
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
       <div class="container">
         <div class="row align-items-center">
-          
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Coach<span class="text-primary">.</span> </a></h1>
+            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Coach<span class="text-primary">.</span></a></h1>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
-
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li class="has-children">
@@ -79,7 +119,7 @@
                     </li>
                   </ul>
                 </li>
-                
+
                 <li><a href="#training-section" class="nav-link">Our Training</a></li>
                 <li><a href="#services-section" class="nav-link">Services</a></li>
                 <li><a href="#contact-section" class="nav-link">Contact</a></li>
@@ -87,54 +127,54 @@
             </nav>
           </div>
 
-
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
-
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
+            <a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
+          </div>
         </div>
       </div>
-      
     </header>
 
-  <style>
-  /* Make the hero/cover section half the viewport height */
-  .site-blocks-cover {
-    height: 40vh !important;
-    min-height: 40vh;
-    display: flex;
-    align-items: center; /* vertically center content inside the hero */
-  }
+    <!-- Keep hero height logic -->
+    <style>
+      .site-blocks-cover {
+        height: 40vh !important;
+        min-height: 40vh;
+        display: flex;
+        align-items: center;
+      }
+      @media (max-width: 767px) {
+        .site-blocks-cover {
+          height: 40vh !important;
+          min-height: 40vh;
+        }
+      }
+    </style>
 
-  /* Slightly reduce on small screens for better fit */
-  @media (max-width: 767px) {
-    .site-blocks-cover {
-      height: 40vh !important;
-      min-height: 40vh;
-    }
-  }
-  </style>
     <section class="site-blocks-cover overflow-hidden" style="background-image: url('images/hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-      <!-- optional dark overlay to keep text readable -->
       <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.15);"></div>
 
       <div class="container" style="position: relative; z-index: 2;">
         <div class="row">
           <div class="col-lg-12 align-self-center">
             <div class="row">
-              <div class="col-lg-11">
+              <div class="col-lg-12">
                 <div class="text-right" style="font-family: 'Montserrat', sans-serif; letter-spacing: 0.15rem; word-wrap: break-word;">
                   <div style="height: 4rem;" aria-hidden="true"></div>
-                  <p style="color: #fff; margin:0;">
-                  Efficient Spaces, Timeless Design; <br>
-                  Transforming unused spaces by merging functionality and elegance.
+
+                  <div class="hero-headline-wrap">
+                    <p class="hero-headline">
+                      <span>Efficient Spaces, Timeless Design;</span><br>
+                      <span class="hero-line-2">Transforming unused spaces by merging functionality and elegance.</span>
+                    </p>
+                  </div>
+
                   <div style="height: 1rem;" aria-hidden="true"></div>
                   <p class="mt-3">
-
-                  <a href="portfolio.html" 
-                    class="btn btn-outline-light font-weight-bold" 
-                    style="border-radius: 0; font-size: 0.7rem; padding: 0.4rem 1.2rem;">
-                    PORTFOLIO
-                  </a>
-                  
+                    <a href="portfolio.html"
+                       class="btn btn-outline-light font-weight-bold"
+                       style="border-radius: 0; font-size: 0.7rem; padding: 0.4rem 1.2rem;">
+                      PORTFOLIO
+                    </a>
                   </p>
                 </div>
               </div>
@@ -148,10 +188,8 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-9 slideshow-column" style="margin-top: var(--slideshow-margin, 4rem);">
-            <!-- slideshow wrapper: use --slideshow-scale to control size, --slideshow-margin for spacing -->
             <div class="slideshow" style="--slideshow-scale: 0.9; --slideshow-aspect-ratio: 0.5625;">
               <div class="slideshow-inner">
-                <!-- slide-ratio forces the carousel to the aspect ratio of the first image -->
                 <div class="slide-ratio">
                   <div class="slide-one-item home-slider owl-carousel">
                     <img src="images/coach_hero_1.jpg" alt="Free Website Template by Free-Templat.co" class="img-fluid img">
@@ -166,24 +204,21 @@
 
           <div class="col-lg-3">
             <div class="px-4" style="max-width:380px;">
-              <h3 class="mb-3">Transform Your Space</h3>
+              <!-- <h3 class="mb-3">Transform Your Space</h3> -->
               <p class="text-muted">Remodeling and design professional based in Connecticut. Maximizing underused spaces by blending know-how with 3D visualization tools to deliver thoughtful, functional solutions across a variety of projects.</p>
               <p class="text-muted">Grounded in a collaborative approach that helps clients make the most of their spaces.</p>
-              <p>
-                <a href="portfolio.html" class="btn btn-primary btn-sm">View Portfolio</a>
-                <a href="#contact-section" class="btn btn-outline-secondary btn-sm ml-2">Contact Us</a>
-              </p>
+
             </div>
           </div>
         </div>
       </div>
 
       <style>
-                .owl-dots {
-            position: absolute;
-            bottom: 10px; /* Adjust as needed */
-            left: 50%;
-            transform: translateX(-50%);
+        .owl-dots {
+          position: absolute;
+          bottom: 10px;
+          left: 50%;
+          transform: translateX(-50%);
         }
         .slideshow { display:flex; justify-content:center; width:100%; }
         .slideshow-inner {
@@ -193,24 +228,18 @@
           transform-origin: center top;
           transition: transform .15s ease;
         }
-
-        /* ratio wrapper: uses --slideshow-aspect-ratio (height/width) from JS */
         .slide-ratio {
           width: 100%;
           padding-top: calc(var(--slideshow-aspect-ratio) * 100%);
           position: relative;
           overflow: hidden;
         }
-
-        /* place the carousel absolutely inside the ratio box */
         .slide-one-item.home-slider {
           position: absolute;
           inset: 0;
           display: flex;
           align-items: stretch;
         }
-
-        /* make each image fill the ratio box and be cropped where needed */
         .slide-one-item.home-slider .img {
           width: 100%;
           height: 100%;
@@ -218,7 +247,6 @@
           display: block;
           flex: 0 0 100%;
         }
-
         .slideshow-control input[type="range"] { vertical-align: middle; }
       </style>
 
@@ -232,21 +260,17 @@
 
           if (!slideshow || !slideshowContainer) return;
 
-          // scale control (keeps existing behavior)
           if (scaleRange) {
             scaleRange.addEventListener('input', function(e){
               slideshow.style.setProperty('--slideshow-scale', (e.target.value / 100).toString());
             });
           }
-
-          // margin control (keeps existing behavior)
           if (marginRange) {
             marginRange.addEventListener('input', function(e){
               slideshowContainer.style.setProperty('--slideshow-margin', (e.target.value / 16) + 'rem');
             });
           }
 
-          // compute & set aspect ratio based on the first image
           function setAspectFromFirstImage(img) {
             if (!img) return;
             function apply() {
@@ -257,16 +281,12 @@
                 slideshow.style.setProperty('--slideshow-aspect-ratio', ratio);
               }
             }
-            if (img.complete) {
-              apply();
-            } else {
-              img.addEventListener('load', apply);
-            }
+            if (img.complete) { apply(); }
+            else { img.addEventListener('load', apply); }
           }
 
           setAspectFromFirstImage(firstImg);
 
-          // if first image isn't present yet (carousel may initialize later), watch for images
           if (!firstImg) {
             var observer = new MutationObserver(function() {
               firstImg = document.querySelector('.slide-one-item.home-slider img');
@@ -278,7 +298,6 @@
             observer.observe(document.body, { childList: true, subtree: true });
           }
 
-          // optional: recompute on window resize if natural sizes change (rare)
           window.addEventListener('resize', function(){
             if (firstImg && firstImg.naturalWidth) {
               slideshow.style.setProperty('--slideshow-aspect-ratio', (firstImg.naturalHeight / firstImg.naturalWidth));
@@ -345,7 +364,6 @@
               <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
               <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
             </p>
-
           </div>
           <div class="col-lg-3 text-left">
             <img src="images/person_3.jpg" alt="Free Website Template by Free-Template.co" class="rounded-circle img-fluid w-50 mb-4">
@@ -372,7 +390,6 @@
         </div>
       </div>
     </section>
-  
 
     <section class="site-section bg-light" id="training-section">
       <div class="container">
@@ -420,11 +437,8 @@
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           </div>
         </div>
-
       </div>
     </section>
-    
-
 
     <section class="site-section" id="services-section">
       <div class="container">
@@ -461,7 +475,6 @@
           </div>
 
           <div class="service">
-
             <div class="icon"><span class="flaticon-target-1 display-1 text-primary"></span></div>
             <h3 class="text-black mb-3">Release Your Potential</h3>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -473,7 +486,6 @@
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -485,114 +497,72 @@
             <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
           </div>
         </div>
-        
+
         <div class="row">
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_3_sm.jpg" data-fancybox="gal"><img src="images/coach_3_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_3_sm.jpg" data-fancybox="gal"><img src="images/coach_3_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-          
-            <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
-
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_3_sm.jpg" data-fancybox="gal"><img src="images/coach_3_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_3_sm.jpg" data-fancybox="gal"><img src="images/coach_3_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_1_sm.jpg" data-fancybox="gal"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
+          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block" data-aos="fade-up" data-aos-delay="100" href="images/coach_2_sm.jpg" data-fancybox="gal"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid"></a>
         </div>
       </div>
     </section>
 
-
     <section class="site-section" id="testimonials-section" data-aos="fade">
       <div class="container">
-        
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center mb-5">
             <h2 class="text-black mb-2">Happy Customers</h2>
           </div>
         </div>
-        <div  data-aos="fade-up" data-aos-delay="200">
+        <div data-aos="fade-up" data-aos-delay="200">
           <div class="owl-carousel owl-style owl-carousel-one no-owl-nav">
             <div>
               <div class="block-testimony-1 text-center">
-                
                 <blockquote class="mb-4">
                   <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.&rdquo;</p>
                 </blockquote>
-
-                <figure>
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
+                <figure><img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle mx-auto"></figure>
                 <h3 class="font-size-20 text-black">Ricky Fisher</h3>
               </div>
             </div>
 
             <div>
               <div class="block-testimony-1 text-center">
-
-                
-
                 <blockquote class="mb-4">
                   <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
                 </blockquote>
-
-                <figure>
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
+                <figure><img src="images/person_2.jpg" alt="Image" class="img-fluid rounded-circle mx-auto"></figure>
                 <h3 class="font-size-20 mb-4 text-black">Ken Davis</h3>
-
-                
               </div>
             </div>
 
             <div>
               <div class="block-testimony-1 text-center">
-                
-
                 <blockquote class="mb-4">
                   <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
                 </blockquote>
-
-                <figure>
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
+                <figure><img src="images/person_1.jpg" alt="Image" class="img-fluid rounded-circle mx-auto"></figure>
                 <h3 class="font-size-20 text-black">Mellisa Griffin</h3>
-
-                
               </div>
             </div>
 
             <div>
               <div class="block-testimony-1 text-center">
-
-
                 <blockquote class="mb-4">
                   <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
                 </blockquote>
-
-                <figure>
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
+                <figure><img src="images/person_3.jpg" alt="Image" class="img-fluid rounded-circle mx-auto"></figure>
                 <h3 class="font-size-20 mb-4 text-black">Robert Steward</h3>
-
-                
               </div>
             </div>
-
 
           </div>
         </div>
@@ -603,30 +573,14 @@
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center mb-5">
-            
             <h2 class="text-black mb-2">Our Blog</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="">
+          <div class="col-md-6 mb-4" data-aos="fade-up">
             <div class="d-lg-flex blog-entry">
-              <figure class="mr-4">
-                <a href="single.html"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a>
-              </figure>
-              <div class="blog-entry-text">
-                <h3><a href="single.html">Unleash Your Potential With These 5 Tips</a></h3>
-                <span class="post-meta mb-3 d-block">April 17, 2019</span>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p><a href="#" class="">Read More..</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="100">
-            <div class="d-lg-flex blog-entry">
-              <figure class="mr-4">
-                <a href="single.html"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a>
-              </figure>
+              <figure class="mr-4"><a href="single.html"><img src="images/coach_1_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a></figure>
               <div class="blog-entry-text">
                 <h3><a href="single.html">Unleash Your Potential With These 5 Tips</a></h3>
                 <span class="post-meta mb-3 d-block">April 17, 2019</span>
@@ -636,11 +590,9 @@
             </div>
           </div>
 
-          <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="">
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
             <div class="d-lg-flex blog-entry">
-              <figure class="mr-4">
-                <a href="single.html"><img src="images/coach_3_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a>
-              </figure>
+              <figure class="mr-4"><a href="single.html"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a></figure>
               <div class="blog-entry-text">
                 <h3><a href="single.html">Unleash Your Potential With These 5 Tips</a></h3>
                 <span class="post-meta mb-3 d-block">April 17, 2019</span>
@@ -649,11 +601,22 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 mb-4" data-aos="fade-up"  data-aos-delay="100">
+
+          <div class="col-md-6 mb-4" data-aos="fade-up">
             <div class="d-lg-flex blog-entry">
-              <figure class="mr-4">
-                <a href="single.html"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a>
-              </figure>
+              <figure class="mr-4"><a href="single.html"><img src="images/coach_3_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a></figure>
+              <div class="blog-entry-text">
+                <h3><a href="single.html">Unleash Your Potential With These 5 Tips</a></h3>
+                <span class="post-meta mb-3 d-block">April 17, 2019</span>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p><a href="#" class="">Read More..</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="d-lg-flex blog-entry">
+              <figure class="mr-4"><a href="single.html"><img src="images/coach_2_sm.jpg" alt="Free Website Template by Free-Template.co" class="img-fluid rounded"></a></figure>
               <div class="blog-entry-text">
                 <h3><a href="single.html">Unleash Your Potential With These 5 Tips</a></h3>
                 <span class="post-meta mb-3 d-block">April 17, 2019</span>
@@ -677,7 +640,7 @@
         <div class="row mb-5">
           <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
             <p class="mb-0 font-weight-bold">Address</p>
-            <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA
+            <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
           </div>
           <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
             <p class="mb-0 font-weight-bold">Phone</p>
@@ -708,7 +671,7 @@
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                  <textarea class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
                 </div>
               </div>
               <div class="form-group row">
@@ -718,13 +681,10 @@
               </div>
             </form>
           </div>
-          
         </div>
       </div>
     </div>
 
-    
-    
     <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -732,7 +692,6 @@
             <h2 class="footer-heading mb-4">About Us</h2>
             <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
           </div>
-
 
           <div class="col-md-3 ml-auto">
             <h2 class="footer-heading mb-4">Quick Links</h2>
@@ -771,19 +730,17 @@
           <div class="col-md-12">
             <div class="border-top pt-5">
               <p class="copyright"><small>
-              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
-        
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+                <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              </small></p>
             </div>
           </div>
-          
         </div>
 
       </div>
     </footer>
 
-  </div> <!-- .site-wrap -->
+  </div><!-- .site-wrap -->
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -796,20 +753,20 @@
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
   <script src="js/isotope.pkgd.min.js"></script>
-  
+
   <script src="js/typed.js"></script>
-            <script>
-            var typed = new Typed('.typed-words', {
-            strings: ["Motivational Speakers","Professional Speakers","Business Speakers", "Professional Life Coach"],
-            typeSpeed: 80,
-            backSpeed: 80,
-            backDelay: 4000,
-            startDelay: 1000,
-            loop: true,
-            showCursor: true
-            });
-            </script>
-  
+  <script>
+    var typed = new Typed('.typed-words', {
+      strings: ["Motivational Speakers","Professional Speakers","Business Speakers", "Professional Life Coach"],
+      typeSpeed: 80,
+      backSpeed: 80,
+      backDelay: 4000,
+      startDelay: 1000,
+      loop: true,
+      showCursor: true
+    });
+  </script>
+
   <script src="js/main.js"></script>
 
   </body>
