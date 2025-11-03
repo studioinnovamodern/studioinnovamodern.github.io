@@ -133,10 +133,12 @@
     <section>
       <div class="container">
       <div class="row"></div>
-        <div class="col-12" style="margin-top: var(--slideshow-margin, 2rem);">
+      <div class="col-12" style="margin-top: var(--slideshow-margin, 2rem);"></div>
         <!-- slideshow wrapper: use --slideshow-scale to control size, --slideshow-margin for spacing -->
-        <div class="slideshow" style="--slideshow-scale: 0.6;">
-          <div class="slideshow-inner">
+        <div class="slideshow" style="--slideshow-scale: 0.6; --slideshow-aspect-ratio: 0.5625;">
+        <div class="slideshow-inner">
+          <!-- slide-ratio forces the carousel to the aspect ratio of the first image -->
+          <div class="slide-ratio">
           <div class="slide-one-item home-slider owl-carousel">
             <img src="images/coach_hero_1.jpg" alt="Free Website Template by Free-Templat.co" class="img-fluid img">
             <img src="images/coach_hero_2.jpg" alt="Free Website Template by Free-Templat.co" class="img-fluid img">
@@ -145,47 +147,119 @@
           </div>
           </div>
         </div>
+        </div>
 
         <!-- controls for both scale and margin -->
         <div class="slideshow-control text-center mt-3">
-          <label for="slideshowScale" style="margin-right:.5rem;">Scale</label>
-          <input id="slideshowScale" type="range" min="50" max="120" value="90" style="margin-right:1rem;"/>
-          <label for="slideshowMargin" style="margin-right:.5rem;">Spacing</label>
-          <input id="slideshowMargin" type="range" min="-100" max="100" value="32"/>
+        <label for="slideshowScale" style="margin-right:.5rem;">Scale</label>
+        <input id="slideshowScale" type="range" min="50" max="120" value="90" style="margin-right:1rem;"/>
+        <label for="slideshowMargin" style="margin-right:.5rem;">Spacing</label>
+        <input id="slideshowMargin" type="range" min="-100" max="100" value="32"/>
         </div>
-        </div>
+      </div>
       </div>
       </div>
 
       <style>
       .slideshow { display:flex; justify-content:center; width:100%; }
       .slideshow-inner {
-        width:100%;
-        max-width:1200px;
-        transform: scale(var(--slideshow-scale));
-        transform-origin: center top;
-        transition: transform .15s ease;
+      width:100%;
+      max-width:1200px;
+      transform: scale(var(--slideshow-scale));
+      transform-origin: center top;
+      transition: transform .15s ease;
       }
-      .slide-one-item.home-slider .img { width:100%; height:auto; display:block; }
+
+      /* ratio wrapper: uses --slideshow-aspect-ratio (height/width) from JS */
+      .slide-ratio {
+      width: 100%;
+      padding-top: calc(var(--slideshow-aspect-ratio) * 100%);
+      position: relative;
+      overflow: hidden;
+      }
+
+      /* place the carousel absolutely inside the ratio box */
+      .slide-one-item.home-slider {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: stretch;
+      }
+
+      /* make each image fill the ratio box and be cropped where needed */
+      .slide-one-item.home-slider .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      flex: 0 0 100%;
+      }
+
       .slideshow-control input[type="range"] { vertical-align: middle; }
       </style>
 
       <script>
       (function(){
-        var scaleRange = document.getElementById('slideshowScale');
-        var marginRange = document.getElementById('slideshowMargin');
-        var slideshow = document.querySelector('.slideshow');
-        var slideshowContainer = document.querySelector('.col-12');
-        
-        if (!scaleRange || !marginRange || !slideshow || !slideshowContainer) return;
-        
+      var scaleRange = document.getElementById('slideshowScale');
+      var marginRange = document.getElementById('slideshowMargin');
+      var slideshow = document.querySelector('.slideshow');
+      var slideshowContainer = document.querySelector('.col-12');
+      var firstImg = document.querySelector('.slide-one-item.home-slider img');
+
+      if (!slideshow || !slideshowContainer) return;
+
+      // scale control (keeps existing behavior)
+      if (scaleRange) {
         scaleRange.addEventListener('input', function(e){
         slideshow.style.setProperty('--slideshow-scale', (e.target.value / 100).toString());
         });
+      }
 
+      // margin control (keeps existing behavior)
+      if (marginRange) {
         marginRange.addEventListener('input', function(e){
         slideshowContainer.style.setProperty('--slideshow-margin', (e.target.value / 16) + 'rem');
         });
+      }
+
+      // compute & set aspect ratio based on the first image
+      function setAspectFromFirstImage(img) {
+        if (!img) return;
+        function apply() {
+        var w = img.naturalWidth || img.width;
+        var h = img.naturalHeight || img.height;
+        if (w && h) {
+          var ratio = h / w;
+          slideshow.style.setProperty('--slideshow-aspect-ratio', ratio);
+        }
+        }
+        if (img.complete) {
+        apply();
+        } else {
+        img.addEventListener('load', apply);
+        }
+      }
+
+      setAspectFromFirstImage(firstImg);
+
+      // if first image isn't present yet (carousel may initialize later), watch for images
+      if (!firstImg) {
+        var observer = new MutationObserver(function() {
+        firstImg = document.querySelector('.slide-one-item.home-slider img');
+        if (firstImg) {
+          setAspectFromFirstImage(firstImg);
+          observer.disconnect();
+        }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+
+      // optional: recompute on window resize if natural sizes change (rare)
+      window.addEventListener('resize', function(){
+        if (firstImg && firstImg.naturalWidth) {
+        slideshow.style.setProperty('--slideshow-aspect-ratio', (firstImg.naturalHeight / firstImg.naturalWidth));
+        }
+      });
       })();
       </script>
     </section>
