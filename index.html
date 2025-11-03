@@ -23,7 +23,47 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
-    
+<style>
+  /* Keep the hero links white */
+.site-blocks-cover p a.btn { color:#fff; }
+
+/* Limit line length & center it visually (still inside your right-aligned column) */
+.hero-headline-wrap{
+  max-width: 800px;         /* adjust 720–880px to taste */
+  margin-left: auto;        /* pushes the block right */
+  margin-right: 0;
+}
+
+/* Lighter, smaller, more tracking — like your target */
+.site-blocks-cover .hero-headline{
+  margin: 0;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;         /* lighter than before */
+  letter-spacing: 0.17em;   /* more tracking */
+  line-height: 1.35;        /* a touch more air */
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);  /* subtle readability boost */
+
+  /* desktop default */
+  font-size: 1.6rem;
+}
+
+/* Tablet */
+@media (max-width: 992px){
+  .hero-headline-wrap{ max-width: 700px; }
+  .site-blocks-cover .hero-headline{ font-size: 1.35rem; letter-spacing: 0.14em; }
+}
+
+/* Mobile */
+@media (max-width: 576px){
+  .hero-headline-wrap{ max-width: 92%; }  /* use most of the width on phones */
+  .site-blocks-cover .hero-headline{
+    font-size: 1.05rem;
+    letter-spacing: 0.10em;
+    line-height: 1.3;
+  }
+}
+</style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
   
@@ -123,9 +163,12 @@
               <div class="col-lg-11">
                 <div class="text-right" style="font-family: 'Montserrat', sans-serif; letter-spacing: 0.15rem; word-wrap: break-word;">
                   <div style="height: 4rem;" aria-hidden="true"></div>
-                  <p style="color: #fff; margin:0;">
-                  Efficient Spaces, Timeless Design; <br>
-                  Transforming unused spaces by merging functionality and elegance.
+<div class="hero-headline-wrap">
+<p class="hero-headline">
+  Efficient Spaces, Timeless Design;<br>
+  Transforming unused spaces by merging functionality and elegance.
+</p>
+</div>
                   <div style="height: 1rem;" aria-hidden="true"></div>
                   <p class="mt-3">
 
