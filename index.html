@@ -69,6 +69,33 @@
           line-height: 1.3;
         }
       }
+            /* NAV: white over the hero, black after sticky kicks in */
+      .sticky-wrapper:not(.is-sticky) .site-navbar .site-menu > li > a {
+        color: #fff !important;
+      }
+      .sticky-wrapper:not(.is-sticky) .site-navbar .site-menu > li > a:hover,
+      .sticky-wrapper:not(.is-sticky) .site-navbar .site-menu > li > a:focus {
+        color: #ffffffcc !important; /* soft white on hover */
+      }
+
+      /* Logo & mobile hamburger white over hero */
+      .sticky-wrapper:not(.is-sticky) .site-navbar .site-logo a,
+      .sticky-wrapper:not(.is-sticky) .site-navbar .site-menu-toggle {
+        color: #fff !important;
+      }
+
+      /* Dropdown caret (the little arrow) white over hero */
+      .sticky-wrapper:not(.is-sticky) .site-navbar .site-navigation .site-menu .has-children > a:before {
+        color: #fff;
+      }
+
+      /* Optional: make the top border subtle while over hero */
+      .sticky-wrapper:not(.is-sticky) .site-navbar {
+        border-bottom-color: rgba(255,255,255,0.3);
+      }
+
+
+
     </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
