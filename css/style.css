@@ -1979,3 +1979,47 @@ figure figcaption {
 @media (max-width: 991.98px) {
   .owl-style-md .owl-nav {
     display: none; } }
+
+    .hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero--vh-40 {
+  height: 40vh;
+  min-height: 40vh;
+}
+
+/* subtle dark overlay like homepage */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make nav/logo/hamburger white while over the hero until sticky kicks in */
+.sticky-wrapper:not(.is-sticky) .site-navbar .site-menu > li > a,
+.sticky-wrapper:not(.is-sticky) .site-navbar .site-logo a,
+.sticky-wrapper:not(.is-sticky) .site-navbar .site-menu-toggle {
+  color: #fff !important;
+}
+
+.sticky-wrapper:not(.is-sticky) .site-navbar .site-navigation .site-menu .has-children > a:before {
+  color: #fff;
+}
+
+.sticky-wrapper:not(.is-sticky) .site-navbar {
+  border-bottom-color: rgba(255,255,255,0.3);
+}
+
+/* Optional: keep buttons/links readable over hero */
+.site-blocks-cover p a.btn { color:#fff; }
