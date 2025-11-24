@@ -2023,3 +2023,33 @@ figure figcaption {
 
 /* Optional: keep buttons/links readable over hero */
 .site-blocks-cover p a.btn { color:#fff; }
+
+/* Center the blog content and widen it slightly */
+.blog-content {
+  max-width: 780px; /* wider than normal Bootstrap */
+  margin: 0 auto;
+}
+
+/* Magazine-style figures */
+.blog-content figure {
+  position: relative;
+  width: 130%;            /* make image wider than text */
+  left: -15%;              /* center that extra width */
+  margin: 3rem 0;
+  text-align: center;
+}
+
+/* Oversized image */
+.blog-content figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Caption style */
+.blog-content figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
