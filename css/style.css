@@ -2033,9 +2033,9 @@ figure figcaption {
 /* Magazine-style figures */
 .blog-content figure {
   position: relative;
-  width: 130%;            /* make image wider than text */
-  left: -15%;              /* center that extra width */
-  margin: 3rem 0;
+  width: 120%;            /* make image wider than text */
+  left: -10%;              /* center that extra width */
+  margin: 1.5rem 0;
   text-align: center;
 }
 
@@ -2043,7 +2043,7 @@ figure figcaption {
 .blog-content figure img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 /* Caption style */
