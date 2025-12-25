@@ -2031,10 +2031,10 @@ figure figcaption {
 }
 
 /* Magazine-style figures */
-.blog-content figure {
+.blog-content figure.figure-wide {
   position: relative;
-  width: 120%;            /* make image wider than text */
-  left: -10%;              /* center that extra width */
+  width: 120%;
+  left: -10%;
   margin: 1.5rem 0;
   text-align: center;
 }
@@ -2053,3 +2053,44 @@ figure figcaption {
   color: #777;
 }
 
+/* Turn off the “120% magazine” figure styling for multi-column grids */
+.figure-grid figure {
+  width: 100%;
+  left: 0;
+  margin: 0;
+  text-align: center;
+}
+.figure-grid img {
+  width: 100%;
+  display: block;
+}
+
+/* Make the whole 2-up row match the same "120% wide" look (Bootstrap-row safe) */
+.blog-content .figure-wide-row{
+  width: 120%;
+  margin-left: -10%;
+  margin-right: -10%;
+
+  /* cancel Bootstrap row behavior so your math is predictable */
+  left: auto;
+  position: relative;
+}
+
+/* Optional: keep nice breathing room on the outer edges */
+.blog-content .figure-wide-row > [class*="col-"]{
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+/* Keep the figures normal inside each column */
+.blog-content .figure-wide-row figure{
+  width: 100%;
+  margin: 0;
+  left: 0;
+  text-align: center;
+}
+
+.blog-content .figure-wide-row img{
+  width: 100%;
+  display: block;
+}
