@@ -468,6 +468,39 @@
   
   <script src="js/main.js"></script>
 
-  
+  <script>
+      (function () {
+        function syncCollageHeights() {
+          document.querySelectorAll('.collage-2x1').forEach(function (collage) {
+            var leftImg = collage.querySelector('.collage__left img');
+            if (!leftImg) return;
+
+            // If the image isn’t loaded yet, try again when it loads
+            if (!leftImg.complete || leftImg.naturalWidth === 0) {
+              leftImg.addEventListener('load', function () { syncCollageHeights(); }, { once: true });
+              return;
+            }
+
+            // Use rendered height (after CSS/layout)
+            var h = leftImg.getBoundingClientRect().height;
+            if (h > 0) {
+              collage.style.setProperty('--collageH', h + 'px');
+            }
+          });
+        }
+
+        // Run on load + resize
+        window.addEventListener('load', syncCollageHeights);
+        window.addEventListener('resize', function () {
+          // small debounce
+          clearTimeout(window.__collageResizeTimer);
+          window.__collageResizeTimer = setTimeout(syncCollageHeights, 80);
+        });
+
+        // If fonts/images cause late reflow, run once more shortly after load
+        setTimeout(syncCollageHeights, 300);
+      })();
+  </script>
+
   </body>
 </html>
