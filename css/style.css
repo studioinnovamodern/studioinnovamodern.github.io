@@ -2066,7 +2066,7 @@ figure figcaption {
 }
 
 /* Make the whole 2-up row match the same "120% wide" look (Bootstrap-row safe) */
-.blog-content .figure-wide-row{
+.blog-content .figure-wide-row {
   width: 120%;
   margin-left: -10%;
   margin-right: -10%;
@@ -2094,3 +2094,68 @@ figure figcaption {
   width: 100%;
   display: block;
 }
+
+/* 2-column collage: left big, right split into 2 */
+.collage-2x1{
+  display: flex;
+  gap: 18px;              /* space between left & right */
+  width: 100%;
+  max-width: 120%;
+}
+
+/* Left column takes more width */
+.collage__left{
+  flex: 1.35;             /* adjust to taste */
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;       /* set if you want rounded corners */
+}
+
+/* Right column stacks two equal blocks */
+.collage__right{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;              /* space between the two right images */
+}
+
+/* Each right image slot */
+.collage__slot{
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* KEY: force a consistent overall height so it "stays within size" */
+.collage__left,
+.collage__slot{
+          /* change this to your desired collage height */
+}
+
+/* Right side is two equal halves */
+.collage__slot{
+  height: calc((320px - 18px) / 2);  /* same as collage height minus gap */
+}
+
+/* Make images fill without stretching */
+.collage__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive: stack nicely on mobile */
+@media (max-width: 768px){
+  .collage-2x1{
+    flex-direction: column;
+  }
+  .collage__left,
+  .collage__slot{
+    height: auto;
+  }
+  .collage__img{
+    height: auto;
+  }
+}
+
