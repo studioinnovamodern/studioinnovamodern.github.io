@@ -2095,59 +2095,41 @@ figure figcaption {
   display: block;
 }
 
-/* 2-column collage: left big, right split into 2 */
+/* ===== Collage: fixed visual block, controlled cropping ===== */
 .collage-2x1{
   display: flex;
-  gap: 18px;              /* space between left & right */
-  width: 100%;
-  max-width: 120%;
+  gap: 18px;
+
+  width: 120%;
+  margin-left: -10%;
+  margin-right: -10%;
 }
 
-/* Left column takes more width */
+.collage__left{ flex: 1.35; margin: 0; overflow: hidden; }
+.collage__right{ flex: 1; display: flex; flex-direction: column; gap: 18px; }
+.collage__slot{ margin: 0; overflow: hidden; }
+
+/* Responsive height instead of hard 320px */
 .collage__left{
-  flex: 1.35;             /* adjust to taste */
-  margin: 0;
-  overflow: hidden;
-  border-radius: 0;       /* set if you want rounded corners */
+  height: clamp(260px, 34vw, 420px);
 }
-
-/* Right column stacks two equal blocks */
-.collage__right{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;              /* space between the two right images */
-}
-
-/* Each right image slot */
 .collage__slot{
-  margin: 0;
-  overflow: hidden;
-  border-radius: 0;
+  height: calc((clamp(260px, 34vw, 420px) - 18px) / 2);
 }
 
-/* KEY: force a consistent overall height so it "stays within size" */
-.collage__left,
-.collage__slot{
-          /* change this to your desired collage height */
-}
-
-/* Right side is two equal halves */
-.collage__slot{
-  height: calc((320px - 18px) / 2);  /* same as collage height minus gap */
-}
-
-/* Make images fill without stretching */
 .collage__img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;         /* still crops, but… */
+  object-position: center;   /* adjust if faces/subjects get cut */
   display: block;
 }
 
-/* Responsive: stack nicely on mobile */
 @media (max-width: 768px){
   .collage-2x1{
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     flex-direction: column;
   }
   .collage__left,
@@ -2158,4 +2140,3 @@ figure figcaption {
     height: auto;
   }
 }
-
