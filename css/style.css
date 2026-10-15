@@ -2066,7 +2066,7 @@ figure figcaption {
 }
 
 /* Make the whole 2-up row match the same "120% wide" look (Bootstrap-row safe) */
-.blog-content .figure-wide-row{
+.blog-content .figure-wide-row {
   width: 120%;
   margin-left: -10%;
   margin-right: -10%;
@@ -2093,4 +2093,74 @@ figure figcaption {
 .blog-content .figure-wide-row img{
   width: 100%;
   display: block;
+}
+
+/* 2-column collage: left big, right split into 2 (NO fixed heights) */
+/* Collage wrapper stays the same idea */
+:root{
+  --collageH: 520px; /* total height of the 3-image unit (adjust) */
+}
+
+/* 3-image collage wrapper */
+.collage-2x1{
+  display: flex;
+  gap: 18px;
+  width: 120%;
+  margin-left: -10%;
+  margin-right: -10%;
+  height: var(--collageH);
+}
+
+/* LEFT big image */
+.collage__left{
+  flex: 1.35;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* RIGHT stacked column */
+.collage__right{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+}
+
+/* Each right slot is half height (minus gap) */
+.collage__slot{
+  height: calc((var(--collageH) - 18px) / 2);
+  margin: 0;
+  overflow: hidden;
+}
+
+/* IMPORTANT: override your global figure img rule */
+.collage-2x1 .collage__img{
+  width: 100%;
+  height: 100% !important;      /* prevents "height:auto" rules from winning */
+  display: block;
+  object-fit: cover;            /* no distortion, only crop */
+  object-position: center;
+}
+
+/* Mobile: stack and remove forced heights */
+@media (max-width: 768px){
+  .collage-2x1{
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    height: auto;
+  }
+
+  .collage__left,
+  .collage__right,
+  .collage__slot{
+    height: auto;
+  }
+
+  .collage-2x1 .collage__img{
+    height: auto !important;
+    object-fit: contain; /* optional on mobile */
+  }
 }
