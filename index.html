@@ -96,6 +96,47 @@
 
 
 
+
+      /* WORKS: always 3 equal columns on desktop, with centered, larger tiles. */
+      #gallery-section .works-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 26px 22px;
+        width: 100%;
+        max-width: 1560px;
+        margin: 0 auto;
+      }
+      #gallery-section .works-grid .gal-item {
+        display: block;
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+      }
+      #gallery-section .works-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+      #gallery-section .works-grid .gallery-title {
+        margin-top: 8px;
+        color: #ccc;
+      }
+      /* Unfilled grid positions stay blank automatically; no dummy projects. */
+      @media (max-width: 991.98px) {
+        #gallery-section .works-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 575.98px) {
+        #gallery-section .works-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
     </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
@@ -359,26 +400,30 @@
           </div>
         </div>
 
-        <div class="row">
-
-          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block text-center"
-            href="http://localhost/single.html">
-            <img src="images/modest-kitchen/1.jpg" class="img-fluid" alt="">
+        <!-- Every complete row holds three projects on desktop.
+             If the last row has fewer than three, its unused positions stay blank. -->
+        <div class="works-grid">
+          <a class="gal-item d-block text-center"
+             href="/works/Attics/griswold-attic.html">
+            <img src="images/modern-bathroom/1.png" class="works-image" alt="Modern Bathroom remodel">
+            <div class="gallery-title">Minimalist Bathroom</div>
+          </a>
+          <a class="gal-item d-block text-center"
+             href="http://localhost/single.html">
+            <img src="images/modest-kitchen/1.jpg" class="works-image" alt="Modest Kitchen remodel">
             <div class="gallery-title">Modest Kitchen</div>
           </a>
-
-          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block text-center"
-            href="griswold-attic.html">
-            <img src="images/griswold-attic/8.jpg" class="img-fluid" alt="">
+          <a class="gal-item d-block text-center"
+             href="/works/Attics/griswold-attic.html">
+            <img src="images/griswold-attic/8.jpg" class="works-image" alt="Griswold Attic remodel">
             <div class="gallery-title">Griswold Attic</div>
           </a>
-          
-          <a class="col-6 col-md-6 col-lg-4 col-xl-3 gal-item d-block text-center"
-            href="windsor-attic.html">
-            <img src="images/windsor-attic/5.jpg" class="img-fluid" alt="">
+          <a class="gal-item d-block text-center"
+             href="/works/Attics/windsor-attic.html">
+            <img src="images/windsor-attic/5.jpg" class="works-image" alt="Windsor Attic remodel">
             <div class="gallery-title">Windsor Attic</div>
           </a>
-          
+          <!-- Add more .gal-item project links here; new rows form automatically. -->
         </div>
       </div>
     </section>
