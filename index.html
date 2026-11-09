@@ -137,6 +137,34 @@
           grid-template-columns: minmax(0, 1fr);
         }
       }
+
+      /* Minimal social icons in the contact section */
+      #contact-section .contact-social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      #contact-section .contact-social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid #bcbcbc;
+        border-radius: 50%;
+        color: #333;
+        background: transparent;
+        font-size: 19px;
+        text-decoration: none;
+        transition: background .2s ease, color .2s ease, border-color .2s ease;
+      }
+      #contact-section .contact-social-icons a:hover,
+      #contact-section .contact-social-icons a:focus-visible {
+        background: #222;
+        color: #fff;
+        border-color: #222;
+      }
     </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
@@ -171,7 +199,7 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="#about-section" class="nav-link">About</a>
+                  <!-- <a href="#about-section" class="nav-link">About</a>
                   <ul class="dropdown">
                     <li><a href="#training-section" class="nav-link">Our Training</a></li>
                     <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
@@ -189,7 +217,7 @@
                 </li>
 
                 <li><a href="#training-section" class="nav-link">Our Training</a></li>
-                <li><a href="#services-section" class="nav-link">Services</a></li>
+                <li><a href="#services-section" class="nav-link">Services</a></li> -->
                 <li><a href="#contact-section" class="nav-link">Contact</a></li>
               </ul>
             </nav>
@@ -436,7 +464,7 @@
       </div>
     </section>
 
-    <section class="site-section" id="blog-section">
+    <!-- <section class="site-section" id="blog-section">
           <div class="container">
             <div class="row justify-content-center" data-aos="fade-up">
               <div class="col-lg-6 text-center mb-5">
@@ -493,9 +521,12 @@
 
             </div>
           </div>
-        </section>
+        </section> -->
 
-    <section class="site-section" id="about-section">
+
+
+
+    <!-- <section class="site-section" id="about-section">
       <div class="container">
         <div class="row">
           <div class="col-12 mb-3">
@@ -577,9 +608,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="site-section bg-light" id="training-section">
+    <!-- <section class="site-section bg-light" id="training-section">
       <div class="container">
         <div class="row mb-5 justify-content-center">
           <div class="col-md-7 text-center">
@@ -626,9 +657,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="site-section" id="services-section">
+    <!-- <section class="site-section" id="services-section">
       <div class="container">
         <div class="row mb-5 justify-content-center">
           <div class="col-md-7 text-center">
@@ -675,9 +706,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="site-section" id="testimonials-section" data-aos="fade">
+    <!-- <section class="site-section" id="testimonials-section" data-aos="fade">
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center mb-5">
@@ -729,7 +760,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     
 
@@ -737,44 +768,51 @@
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-5">
-            <h2 class="text-black">Contact Us</h2>
+            <h2 class="text-black">CONTACT</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center mb-5">
           </div>
         </div>
         <div class="row mb-5">
           <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
-            <p class="mb-0 font-weight-bold">Address</p>
-            <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+            <p class="mb-0 font-weight-bold">Social Media</p>
+            <!-- Replace each # with your actual social profile URL -->
+            <div class="contact-social-icons" aria-label="Social media profiles">
+              <a href="https://www.instagram.com/innovamodern" aria-label="Instagram" title="Instagram"><span class="icon-instagram" aria-hidden="true"></span></a>
+              <a href="https://www.facebook.com/profile.php?id=61560786463241" aria-label="Facebook" title="Facebook"><span class="icon-facebook" aria-hidden="true"></span></a>
+            </div>
           </div>
-          <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
+          <!-- <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
             <p class="mb-0 font-weight-bold">Phone</p>
             <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
-          </div>
+          </div> -->
           <div class="mb-4 mb-lg-0 col-md-6 col-lg-4">
             <p class="mb-0 font-weight-bold">Email Address</p>
-            <p class="mb-0"><a href="#">youremail@domain.com</a></p>
+            <p class="mb-0"><a href="mailto:studio.innovamodern@gmail.com">studio.innovamodern@gmail.com</a></p>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12 mb-5">
-            <form action="#" method="post">
+            <form action="https://formsubmit.co/studio.innovamodern@gmail.com" method="POST">
+              <!-- FormSubmit emails the submitted fields to the studio after one-time email activation. -->
+              <input type="hidden" name="_subject" value="New project inquiry - InnovaModern">
+              <input type="hidden" name="_template" value="table">
+              <!-- Spam trap: humans don't see this field. CAPTCHA remains enabled by default. -->
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
               <div class="form-group row">
                 <div class="col-md-6 mb-3 mb-md-0">
-                  <input type="text" class="form-control" placeholder="First name">
+                  <input type="text" name="name" class="form-control" placeholder="Name" aria-label="Name" autocomplete="name" required>
                 </div>
                 <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="First name">
+                  <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" autocomplete="email" required>
                 </div>
               </div>
-
               <div class="form-group row">
                 <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Email address">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <textarea class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
+                  <textarea name="message" class="form-control" placeholder="Describe your project." aria-label="Describe your project" cols="30" rows="10" required></textarea>
                 </div>
               </div>
               <div class="form-group row">
